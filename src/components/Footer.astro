@@ -1,0 +1,59 @@
+---
+const appStoreUrl = 'https://apps.apple.com/app/nesso-stay-connected/id6744254569';
+---
+
+<footer class="border-t border-border/50 mt-20">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2.5 mb-3">
+          <img src="/nesso-logo.png" alt="Nesso" class="w-8 h-8 rounded-full" />
+          <span class="text-base tracking-[0.15em] text-foreground/70" style="font-family: Georgia, Cambria, ui-serif, serif;">nesso</span>
+        </div>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Stay connected to the people who matter.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h3 class="text-sm font-semibold text-foreground mb-3">Links</h3>
+        <ul class="space-y-2 text-sm text-muted-foreground">
+          <li><a href={appStoreUrl} target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">Download on App Store</a></li>
+          <li><a href="/privacy" class="hover:text-foreground transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms" class="hover:text-foreground transition-colors">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div>
+        <h3 class="text-sm font-semibold text-foreground mb-3">Connect</h3>
+        <ul class="space-y-2 text-sm text-muted-foreground">
+          <li>
+            <a href="https://instagram.com/nesso_app" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors inline-flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://tiktok.com/@nesso.app" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors inline-flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.11V9.02a6.19 6.19 0 00-.79-.05A6.27 6.27 0 003.22 15.24a6.27 6.27 0 006.27 6.27 6.27 6.27 0 006.27-6.27V9.49a8.2 8.2 0 004.83 1.56V7.62a4.84 4.84 0 01-1-.93z"/></svg>
+              TikTok
+            </a>
+          </li>
+          <li>
+            <a href="mailto:nesso.team@gmail.com" class="hover:text-foreground transition-colors inline-flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              nesso.team@gmail.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 pt-6 border-t border-border/30 text-center text-xs text-muted-foreground">
+      <p>&copy; {new Date().getFullYear()} Nesso. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nesso.tech/sitemap-index.xml

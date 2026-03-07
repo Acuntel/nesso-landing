@@ -1,0 +1,61 @@
+---
+const steps = [
+  {
+    number: '1',
+    title: 'Add your people',
+    description: 'Your inner circle, all in one place. Add anyone you want to stay close to.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>`,
+  },
+  {
+    number: '2',
+    title: 'Watch your connections',
+    description: 'Connection bars show when it\'s time to reach out. Hearts flow when you\'re close.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+  },
+  {
+    number: '3',
+    title: 'Stay close',
+    description: 'One tap to text, call, or send an AI-crafted message. Keep the momentum going.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>`,
+  },
+];
+---
+
+<section class="py-16 sm:py-24 px-4 sm:px-6 relative">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-2xl sm:text-3xl font-bold text-foreground mb-3">How it works</h2>
+      <p class="text-muted-foreground">Three simple steps to never drift apart.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      {steps.map((step, i) => (
+        <div
+          class="glass-card rounded-2xl p-6 text-center hover-lift card-glow reveal"
+          style={`transition-delay: ${i * 0.15}s;`}
+        >
+          <!-- Step number -->
+          <div class="w-10 h-10 rounded-full bg-rose/10 flex items-center justify-center text-rose font-bold text-lg mx-auto mb-4">
+            {step.number}
+          </div>
+
+          <!-- Icon -->
+          <div class="text-rose mb-4 flex justify-center" set:html={step.icon} />
+
+          <!-- Text -->
+          <h3 class="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Connecting dots (desktop only) -->
+    <div class="hidden md:flex justify-center items-center absolute top-[calc(50%+20px)] left-1/2 -translate-x-1/2 w-[55%]">
+      <div class="flex-1 border-t-2 border-dashed border-rose/20"></div>
+      <div class="w-2 h-2 rounded-full bg-rose/30 mx-1"></div>
+      <div class="flex-1 border-t-2 border-dashed border-rose/20"></div>
+      <div class="w-2 h-2 rounded-full bg-rose/30 mx-1"></div>
+      <div class="flex-1 border-t-2 border-dashed border-rose/20"></div>
+    </div>
+  </div>
+</section>

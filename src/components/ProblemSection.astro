@@ -1,0 +1,55 @@
+---
+const stats = [
+  {
+    number: '~200',
+    label: 'visits remaining with a parent in their 70s, if you see them 10 times a year',
+  },
+  {
+    number: '52x',
+    label: 'more moments per year, just from one extra text or call each week',
+  },
+  {
+    number: '50%',
+    label: 'longer life expectancy linked to close relationships, more than diet or exercise',
+  },
+];
+---
+
+<section class="py-16 sm:py-24 px-4 sm:px-6">
+  <div class="max-w-3xl mx-auto">
+    <!-- Emotional hook -->
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-2xl sm:text-3xl font-bold text-foreground leading-snug mb-4">
+        You meant to text them back.<br />It's been 3 weeks.
+      </h2>
+      <p class="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
+        The group chat went quiet. Nobody noticed until it was too late.
+        Life gets busy, but your relationships shouldn't pay the price.
+      </p>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="space-y-3 mb-10 reveal" style="transition-delay: 0.1s;">
+      {stats.map((s) => (
+        <div class="glass-card rounded-2xl px-5 py-4 flex items-start gap-4 hover-lift">
+          <span class="text-2xl font-bold text-foreground shrink-0 min-w-[60px]">
+            {s.number}
+          </span>
+          <p class="text-sm text-muted-foreground leading-relaxed pt-0.5">{s.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Research callout -->
+    <div class="rounded-2xl p-5 border border-rose/15 bg-rose/5 reveal" style="transition-delay: 0.2s;">
+      <p class="text-[13px] text-muted-foreground font-medium uppercase tracking-widest mb-2">
+        Research
+      </p>
+      <p class="text-sm text-foreground/75 leading-relaxed">
+        After 85 years and thousands of participants, Harvard's longest-running study on human happiness found that
+        <span class="font-semibold text-foreground">close relationships are the single greatest predictor of a long, healthy life</span>
+        , more than wealth, fame, or genetics.
+      </p>
+    </div>
+  </div>
+</section>
