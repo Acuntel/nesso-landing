@@ -1,46 +1,88 @@
-<section class="py-16 sm:py-20 px-4 sm:px-6">
-  <div class="max-w-3xl mx-auto">
-    <!-- Emotional paragraph -->
-    <div class="glass-card rounded-2xl p-6 sm:p-8 mb-10 reveal">
-      <p class="text-base sm:text-lg text-foreground/70 leading-relaxed">
-        <span class="font-semibold text-foreground">Drift happens quietly.</span>
-        Not because you stopped caring, but because life gets full. Kids, work, routines.
-        Before you know it, months pass. Nesso interrupts that drift with a gentle nudge,
-        so the people who matter stay
-        <span class="font-semibold text-foreground">present in your life</span>,
-        not just in your memory.
-      </p>
+---
+const testimonials = [
+  {
+    quote: "I used to go months without texting my college friends. Now I actually keep up with them, and it feels so good.",
+    name: "Sarah K.",
+    context: "College grad, 23",
+  },
+  {
+    quote: "The iMessage extension is genius. I get a suggestion right when I need it, no switching apps.",
+    name: "Marcus T.",
+    context: "Working professional, 26",
+  },
+  {
+    quote: "My mom noticed I've been calling more. That's all I needed to hear.",
+    name: "Priya R.",
+    context: "Grad student, 22",
+  },
+];
+
+---
+
+<section id="about" class="py-16 sm:py-24 px-4 sm:px-6">
+  <div class="max-w-4xl mx-auto">
+    <!-- Headline -->
+    <div class="text-center mb-12 reveal">
+      <h2 class="text-2xl sm:text-3xl font-bold text-foreground mb-3">Real people. Real connections.</h2>
+      <p class="text-muted-foreground">Hear from people who stopped letting friendships fade.</p>
     </div>
 
-    <!-- Founder + Social -->
-    <div class="text-center reveal" style="transition-delay: 0.1s;">
-      <p class="text-sm text-muted-foreground mb-1">
-        Built with care by <span class="font-semibold text-foreground">Brady Schwartz</span>
-      </p>
-      <p class="text-xs text-muted-foreground/60 mb-5">
-        The small, consistent moments, a text, a call, a voice note, are what relationships are actually made of.
-      </p>
+    <!-- Testimonial cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14">
+      {testimonials.map((t, i) => (
+        <div
+          class="glass-card rounded-2xl p-6 flex flex-col reveal"
+          style={`transition-delay: ${i * 0.1}s;`}
+        >
+          <!-- Quote mark -->
+          <svg class="w-8 h-8 text-rose/30 mb-3 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11 7.5a4.5 4.5 0 0 0-4.5 4.5c0 1.5.7 2.5 1.5 3.5-.8 1-2 2.5-3 3.5 1.5.5 4 0 5.5-1.5 1-.5 2-1.5 2-3.5V9a2 2 0 0 0-1.5-1.5zm8 0a4.5 4.5 0 0 0-4.5 4.5c0 1.5.7 2.5 1.5 3.5-.8 1-2 2.5-3 3.5 1.5.5 4 0 5.5-1.5 1-.5 2-1.5 2-3.5V9a2 2 0 0 0-1.5-1.5z"/>
+          </svg>
+          <p class="text-sm text-foreground/80 leading-relaxed mb-4 flex-1 italic">
+            "{t.quote}"
+          </p>
+          <div>
+            <p class="text-sm font-semibold text-foreground">{t.name}</p>
+            <p class="text-xs text-muted-foreground">{t.context}</p>
+          </div>
+        </div>
+      ))}
+    </div>
 
-      <!-- Social links -->
-      <div class="flex justify-center gap-4">
-        <a
-          href="https://instagram.com/nesso_app"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-          @nesso_app
-        </a>
-        <a
-          href="https://tiktok.com/@nesso.app"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.11V9.02a6.19 6.19 0 00-.79-.05A6.27 6.27 0 003.22 15.24a6.27 6.27 0 006.27 6.27 6.27 6.27 0 006.27-6.27V9.49a8.2 8.2 0 004.83 1.56V7.62a4.84 4.84 0 01-1-.93z"/></svg>
-          @nesso.app
-        </a>
+    <!-- Founder card -->
+    <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-5 reveal" style="transition-delay: 0.4s;">
+      <!-- Avatar -->
+      <div class="w-16 h-16 rounded-full bg-gradient-to-br from-rose/20 to-primary/30 flex items-center justify-center shrink-0">
+        <span class="text-2xl font-bold text-foreground/70">B</span>
+      </div>
+      <div class="text-center sm:text-left">
+        <p class="text-sm font-semibold text-foreground mb-1">
+          Built with care by Brady Schwartz
+        </p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          "The small, consistent moments, a text, a call, a voice note, are what relationships are actually made of. I built Nesso because I kept losing touch with people I cared about, and I didn't want that to be the default."
+        </p>
+        <!-- Social links -->
+        <div class="flex gap-4 mt-3 justify-center sm:justify-start">
+          <a
+            href="https://instagram.com/nesso_app"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            @nesso_app
+          </a>
+          <a
+            href="https://tiktok.com/@nesso.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.11V9.02a6.19 6.19 0 00-.79-.05A6.27 6.27 0 003.22 15.24a6.27 6.27 0 006.27 6.27 6.27 6.27 0 006.27-6.27V9.49a8.2 8.2 0 004.83 1.56V7.62a4.84 4.84 0 01-1-.93z"/></svg>
+            @nesso.app
+          </a>
+        </div>
       </div>
     </div>
   </div>

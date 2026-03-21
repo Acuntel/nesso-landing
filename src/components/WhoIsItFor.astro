@@ -1,0 +1,65 @@
+---
+const appStoreUrl = 'https://apps.apple.com/us/app/nesso-ai/id6759138532';
+
+const personas = [
+  {
+    title: 'The busy friend',
+    description: "You care deeply but life moves fast. Between work, school, and everything else, weeks slip by. Nesso makes sure the people you love don't fall through the cracks.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    gradient: 'from-amber-100 to-orange-100',
+    iconColor: 'text-amber-500',
+  },
+  {
+    title: 'The long-distance one',
+    description: "Different cities, different time zones, same bond. Nesso helps you stay present in each other's lives even when miles apart.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
+    gradient: 'from-blue-100 to-indigo-100',
+    iconColor: 'text-blue-500',
+  },
+  {
+    title: 'The relationship builder',
+    description: "You know that strong relationships are built, not stumbled into. Nesso gives you the tools to be intentional about the people who matter most.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    gradient: 'from-rose-100 to-pink-100',
+    iconColor: 'text-rose',
+  },
+];
+---
+
+<section class="py-16 sm:py-24 px-4 sm:px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <h2 class="text-2xl sm:text-3xl font-bold text-foreground mb-3">Who is Nesso for?</h2>
+      <p class="text-muted-foreground">If any of these sound like you, you're in the right place.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      {personas.map((persona, i) => (
+        <div
+          class="glass-card rounded-2xl p-6 flex flex-col hover-lift card-glow reveal"
+          style={`transition-delay: ${i * 0.1}s;`}
+        >
+          <!-- Icon -->
+          <div class:list={['w-14 h-14 rounded-2xl flex items-center justify-center mb-4 bg-gradient-to-br', persona.gradient, persona.iconColor]}>
+            <Fragment set:html={persona.icon} />
+          </div>
+
+          <!-- Text -->
+          <h3 class="text-lg font-semibold text-foreground mb-2">{persona.title}</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">{persona.description}</p>
+
+          <!-- CTA -->
+          <a
+            href={appStoreUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-foreground/70 hover:text-foreground transition-colors"
+          >
+            Download Nesso
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

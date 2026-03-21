@@ -3,13 +3,13 @@ import AppStoreBadge from './AppStoreBadge.astro';
 import PhoneMockup from './PhoneMockup.astro';
 ---
 
-<section class="relative overflow-hidden animated-bg">
+<section class="relative overflow-hidden animated-bg min-h-[100svh] flex items-center">
   <!-- Ambient blobs -->
   <div class="ambient-blob w-72 h-72 top-10 -left-20 opacity-60" style="animation-duration: 20s;"></div>
   <div class="ambient-blob w-96 h-96 -top-20 right-0 opacity-40" style="animation-duration: 28s;"></div>
   <div class="ambient-blob w-64 h-64 bottom-10 left-1/3 opacity-50" style="animation-duration: 24s;"></div>
 
-  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 sm:pb-24">
+  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-16 sm:pb-24 w-full">
     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
       <!-- Text content -->
       <div class="flex-1 text-center lg:text-left">
@@ -17,7 +17,7 @@ import PhoneMockup from './PhoneMockup.astro';
           Stay close to the people who matter
         </h1>
         <p class="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0 mb-4">
-          Gentle reminders, connection tracking, and AI-powered messages that help you nurture your most important relationships.
+          Connection tracking, an AI coach that knows your relationships, and smart suggestions right inside iMessage.
         </p>
         <p class="text-sm text-muted-foreground/70 mb-8 italic">
           Built for the friends you keep meaning to text back.
@@ -25,6 +25,10 @@ import PhoneMockup from './PhoneMockup.astro';
         <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
           <AppStoreBadge />
         </div>
+        <!-- Tagline reinforcement -->
+        <p class="mt-5 text-xs text-muted-foreground/50">
+          Free on the App Store. No credit card required.
+        </p>
       </div>
 
       <!-- Phone mockup -->
@@ -32,5 +36,10 @@ import PhoneMockup from './PhoneMockup.astro';
         <PhoneMockup />
       </div>
     </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-foreground/50"><path d="m6 9 6 6 6-6"/></svg>
   </div>
 </section>
