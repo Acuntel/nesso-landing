@@ -5,55 +5,62 @@ const personas = [
   {
     title: 'The busy friend',
     description: "You care deeply but life moves fast. Between work, school, and everything else, weeks slip by. Nesso makes sure the people you love don't fall through the cracks.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
-    gradient: 'from-amber-100 to-orange-100',
-    iconColor: 'text-amber-500',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    iconColor: 'text-amber-400',
+    glowColor: 'rgba(251, 191, 36, 0.1)',
   },
   {
     title: 'The long-distance one',
     description: "Different cities, different time zones, same bond. Nesso helps you stay present in each other's lives even when miles apart.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
-    gradient: 'from-blue-100 to-indigo-100',
-    iconColor: 'text-blue-500',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
+    iconColor: 'text-blue-400',
+    glowColor: 'rgba(96, 165, 250, 0.1)',
   },
   {
     title: 'The relationship builder',
     description: "You know that strong relationships are built, not stumbled into. Nesso gives you the tools to be intentional about the people who matter most.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-    gradient: 'from-rose-100 to-pink-100',
-    iconColor: 'text-rose',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    iconColor: 'text-magenta',
+    glowColor: 'rgba(233, 30, 140, 0.1)',
   },
 ];
 ---
 
-<section class="py-16 sm:py-24 px-4 sm:px-6">
-  <div class="max-w-4xl mx-auto">
+<section class="py-20 sm:py-32 px-4 sm:px-6 relative" data-bg="#0a0a16">
+  <div class="max-w-4xl mx-auto relative" style="z-index: 2;">
     <div class="text-center mb-12 reveal">
-      <h2 class="text-2xl sm:text-3xl font-bold text-foreground mb-3">Who is Nesso for?</h2>
-      <p class="text-muted-foreground">If any of these sound like you, you're in the right place.</p>
+      <div class="hud-bracket inline-block mb-4">
+        <span class="text-xs font-mono text-cyan/50 tracking-[0.3em] uppercase">Target Profile</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3">Who is Nesso for?</h2>
+      <p class="text-foreground/40">If any of these sound like you, you're in the right place.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       {personas.map((persona, i) => (
         <div
-          class="glass-card rounded-2xl p-6 flex flex-col hover-lift card-glow reveal"
+          class="persona-card glass-card rounded-2xl p-6 flex flex-col hover-lift card-glow holo-border relative overflow-hidden reveal"
           style={`transition-delay: ${i * 0.1}s;`}
         >
-          <!-- Icon -->
-          <div class:list={['w-14 h-14 rounded-2xl flex items-center justify-center mb-4 bg-gradient-to-br', persona.gradient, persona.iconColor]}>
-            <Fragment set:html={persona.icon} />
+          {/* Scan line */}
+          <div class="absolute inset-0 pointer-events-none scan-line opacity-20"></div>
+
+          {/* Icon */}
+          <div class="relative mb-4">
+            <div class="absolute inset-0 -m-2 rounded-full blur-xl" style={`background: ${persona.glowColor};`}></div>
+            <div class:list={['relative', persona.iconColor]} set:html={persona.icon} />
           </div>
 
-          <!-- Text -->
-          <h3 class="text-lg font-semibold text-foreground mb-2">{persona.title}</h3>
-          <p class="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">{persona.description}</p>
+          {/* Text */}
+          <h3 class="text-lg font-semibold text-foreground mb-2 relative">{persona.title}</h3>
+          <p class="text-sm text-foreground/40 leading-relaxed mb-5 flex-1 relative">{persona.description}</p>
 
-          <!-- CTA -->
+          {/* CTA */}
           <a
             href={appStoreUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 text-sm font-semibold text-foreground/70 hover:text-foreground transition-colors"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-foreground/40 hover:text-cyan transition-colors relative"
           >
             Download Nesso
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -63,3 +70,26 @@ const personas = [
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Clip-path reveal for persona cards
+  const personaCards = document.querySelectorAll('.persona-card');
+  personaCards.forEach((card, i) => {
+    gsap.from(card, {
+      clipPath: 'circle(0% at 30px 30px)',
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 80%',
+        toggleActions: 'play none none none',
+      },
+    });
+  });
+</script>
