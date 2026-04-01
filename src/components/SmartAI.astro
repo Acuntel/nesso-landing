@@ -1,97 +1,67 @@
 ---
+/**
+ * SmartAI — "It learns you" section.
+ * Highlights conversation context sync, smart timing, and personalization.
+ */
 const appStoreUrl = 'https://apps.apple.com/us/app/nesso-ai/id6759138532';
-
-const pillars = [
-  {
-    title: 'Knows your people',
-    description: 'Nesso remembers what you talk about, inside jokes, life updates, and what matters to each person.',
-    icon: `<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="14" r="2"/></svg>`,
-    stat: '100%',
-    statLabel: 'Context Retention',
-  },
-  {
-    title: 'Perfect timing',
-    description: 'Learns when you and your friends are most likely to connect, and nudges you at the right moment.',
-    icon: `<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
-    stat: '3x',
-    statLabel: 'Response Rate',
-  },
-  {
-    title: 'Sounds like you',
-    description: 'Message suggestions match your voice. Casual with close friends, thoughtful with family.',
-    icon: `<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/></svg>`,
-    stat: 'Adaptive',
-    statLabel: 'Tone Matching',
-  },
-];
 ---
 
-<section class="py-20 sm:py-32 px-4 sm:px-6 relative overflow-hidden" data-bg="#080814">
-  <!-- Neural network background -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute inset-0" style="background: radial-gradient(ellipse at 50% 50%, rgba(0, 212, 255, 0.04) 0%, transparent 50%);"></div>
-  </div>
+<section class="py-16 sm:py-24 px-4 sm:px-6 relative overflow-hidden">
+  <!-- Gradient background to differentiate from surrounding sections -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-rose/5 to-transparent pointer-events-none"></div>
+  <!-- Subtle background accent -->
+  <div class="ambient-blob w-80 h-80 -top-20 -right-20 opacity-30" style="animation-duration: 30s;"></div>
 
-  <div class="relative max-w-4xl mx-auto" style="z-index: 2;">
-    <div class="text-center mb-14 reveal">
-      <div class="hud-bracket inline-block mb-4">
-        <span class="text-xs font-mono text-cyan/50 tracking-[0.3em] uppercase">Neural Engine</span>
-      </div>
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3">It learns you</h2>
-      <p class="text-foreground/40 max-w-lg mx-auto">
+  <div class="relative max-w-4xl mx-auto">
+    <div class="text-center mb-12 reveal">
+      <h2 class="text-2xl sm:text-3xl font-bold text-foreground mb-3">It learns you</h2>
+      <p class="text-muted-foreground max-w-lg mx-auto">
         The more you use Nesso, the smarter it gets. Your AI adapts to your relationships, your tone, and your timing.
       </p>
     </div>
 
-    <!-- Neural network SVG connector (desktop) -->
-    <div class="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 w-[70%] pointer-events-none neural-connections" style="z-index: 1;">
-      <svg viewBox="0 0 600 40" class="w-full" preserveAspectRatio="none">
-        <line x1="100" y1="20" x2="300" y2="20" stroke="rgba(0,212,255,0.15)" stroke-width="1" stroke-dasharray="4 4">
-          <animate attributeName="stroke-dashoffset" values="8;0" dur="1s" repeatCount="indefinite" />
-        </line>
-        <line x1="300" y1="20" x2="500" y2="20" stroke="rgba(0,212,255,0.15)" stroke-width="1" stroke-dasharray="4 4">
-          <animate attributeName="stroke-dashoffset" values="8;0" dur="1s" repeatCount="indefinite" />
-        </line>
-        <circle cx="100" cy="20" r="3" fill="rgba(0,212,255,0.3)" />
-        <circle cx="300" cy="20" r="3" fill="rgba(0,212,255,0.3)" />
-        <circle cx="500" cy="20" r="3" fill="rgba(0,212,255,0.3)" />
-      </svg>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 reveal">
-      {pillars.map((pillar, i) => (
-        <div
-          class="ai-pillar glass-card rounded-2xl p-6 text-center hover-lift card-glow holo-border relative overflow-hidden"
-          style={`transition-delay: ${i * 0.15}s;`}
-        >
-          {/* Scan line */}
-          <div class="absolute inset-0 pointer-events-none scan-line opacity-30"></div>
-
-          {/* Icon */}
-          <div class="text-cyan mb-4 flex justify-center relative">
-            <div class="absolute inset-0 -m-4 rounded-full blur-xl bg-cyan/10"></div>
-            <div class="relative" set:html={pillar.icon} />
-          </div>
-
-          <h3 class="text-base font-semibold text-foreground mb-2 relative">{pillar.title}</h3>
-          <p class="text-sm text-foreground/40 leading-relaxed mb-4 relative">{pillar.description}</p>
-
-          {/* HUD stat readout */}
-          <div class="border-t border-cyan/10 pt-3 mt-auto relative">
-            <div class="font-mono text-lg text-cyan font-bold ai-stat" data-value={pillar.stat}>{pillar.stat}</div>
-            <div class="text-[10px] text-foreground/30 font-mono uppercase tracking-widest">{pillar.statLabel}</div>
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 reveal" style="transition-delay: 0.1s;">
+      <!-- Conversation context -->
+      <div class="glass-card rounded-2xl p-6 text-center hover-lift card-glow">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-100 to-violet-100 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-violet-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="14" r="2"/></svg>
         </div>
-      ))}
+        <h3 class="text-base font-semibold text-foreground mb-2">Knows your people</h3>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Nesso remembers what you talk about, inside jokes, life updates, and what matters to each person.
+        </p>
+      </div>
+
+      <!-- Smart timing -->
+      <div class="glass-card rounded-2xl p-6 text-center hover-lift card-glow">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 class="text-base font-semibold text-foreground mb-2">Perfect timing</h3>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Learns when you and your friends are most likely to connect, and nudges you at the right moment.
+        </p>
+      </div>
+
+      <!-- Personalized tone -->
+      <div class="glass-card rounded-2xl p-6 text-center hover-lift card-glow">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-rose-100 to-pink-100 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-rose" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/></svg>
+        </div>
+        <h3 class="text-base font-semibold text-foreground mb-2">Sounds like you</h3>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Message suggestions match your voice. Casual with close friends, thoughtful with family.
+        </p>
+      </div>
     </div>
 
     <!-- Mini CTA -->
-    <div class="text-center mt-10 reveal">
+    <div class="text-center mt-10 reveal" style="transition-delay: 0.2s;">
       <a
         href={appStoreUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 text-sm font-semibold text-foreground/40 hover:text-cyan transition-colors"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-foreground/70 hover:text-foreground transition-colors"
       >
         See it in action
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>

@@ -1,163 +1,249 @@
 ---
 /**
- * Pixel-accurate recreation of the Nesso app home screen — dark/holographic version.
+ * Pixel-accurate recreation of the Nesso app home screen.
  * Matches: SwipeablePersonCard, PersonAvatar, StreakBadge, NessoBrand, AnimatedConnectionBar
  * Scaled ~0.75x from real 375px iPhone width to fit ~280px mockup.
  */
 
+// Heart SVG path reused across connection bars
 const heartPath = 'M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z';
+// Lucide Flame icon path (exact match)
 const flamePath = 'M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z';
 ---
 
 <div class="relative w-[280px] sm:w-[300px]">
-  <!-- Phone frame -->
-  <div class="rounded-[2.5rem] border-[6px] border-foreground/20 shadow-2xl overflow-hidden" style="background: #0c0c18; box-shadow: 0 0 60px rgba(0, 212, 255, 0.08), 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
+  <!-- Phone frame: matches iPhone proportions -->
+  <div class="rounded-[2.5rem] border-[6px] border-foreground/80 bg-background shadow-2xl overflow-hidden">
     <!-- Dynamic Island -->
-    <div class="h-11 flex items-end justify-center pb-1" style="background: #0c0c18;">
-      <div class="w-[90px] h-[22px] bg-foreground/20 rounded-full"></div>
+    <div class="h-11 bg-background flex items-end justify-center pb-1">
+      <div class="w-[90px] h-[22px] bg-foreground/90 rounded-full"></div>
     </div>
 
-    <!-- App content -->
-    <div class="px-3 pb-5 pt-1 min-h-[480px]" style="background: linear-gradient(180deg, #0c0c18 0%, #0a0e1a 50%, #0c0c18 100%);">
+    <!-- App content: matches Home.tsx animated-bg px-3 pt-3 -->
+    <div class="animated-bg px-3 pb-5 pt-1 min-h-[480px]">
 
-      <!-- HEADER: NessoBrand -->
+      <!-- ═══ HEADER: NessoBrand (size="sm") ═══ -->
+      <!-- Matches: NessoBrand.tsx — centered logo with curved "nesso" text arc below -->
       <div class="flex justify-center mb-1">
         <div class="relative flex items-center justify-center" style="width: 65px; height: 65px;">
+          <!-- Logo: rounded-full opacity-70, scaled from 48px → 36px -->
           <img src="/nesso-logo.png" alt="" class="w-9 h-9 rounded-full object-cover opacity-70" />
-          <svg class="absolute top-0 left-0" viewBox="0 0 65 65" style="pointer-events: none;">
+          <!-- Curved text arc: ui-serif, font-weight 300, letter-spacing 0.2em -->
+          <svg
+            class="absolute top-0 left-0"
+            viewBox="0 0 65 65"
+            style="pointer-events: none;"
+          >
             <defs>
               <path id="brand-arc" d="M 9.5 32.5 A 23 23 0 0 0 55.5 32.5" />
             </defs>
-            <text class="fill-foreground/40" style="font-family: ui-serif, Georgia, Cambria, serif; font-weight: 300; font-size: 10px; letter-spacing: 0.2em;" text-anchor="middle">
+            <text
+              class="fill-foreground/60"
+              style="font-family: ui-serif, Georgia, Cambria, serif; font-weight: 300; font-size: 10px; letter-spacing: 0.2em;"
+              text-anchor="middle"
+            >
               <textPath href="#brand-arc" startOffset="50%">nesso</textPath>
             </text>
           </svg>
         </div>
       </div>
 
-      <!-- TITLE -->
+      <!-- ═══ TITLE: matches font-serif text-3xl font-semibold ═══ -->
       <div class="text-center mb-3">
-        <h2 class="text-[15px] font-semibold text-foreground/90 tracking-tight leading-tight" style="font-family: ui-serif, Georgia, Cambria, serif;">
+        <h2 class="text-[15px] font-semibold text-foreground tracking-tight leading-tight" style="font-family: ui-serif, Georgia, Cambria, serif;">
           Stay close to the people<br/>who matter
         </h2>
-        <p class="text-[8px] text-foreground/40 mt-0.5">nurture your most important relationships</p>
+        <p class="text-[8px] text-foreground/70 mt-0.5">nurture your most important relationships</p>
       </div>
 
-      <!-- SEARCH BAR -->
+      <!-- ═══ SEARCH BAR: matches glass rounded-2xl px-4 py-3 ═══ -->
       <div class="flex items-center gap-1.5 mb-3">
-        <div class="flex-1 flex items-center gap-1.5 rounded-xl px-2.5 py-2" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(0,212,255,0.08);">
-          <svg class="w-3 h-3 text-cyan/40 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <span class="text-[9px] text-foreground/30">Search people...</span>
+        <div class="flex-1 flex items-center gap-1.5 glass rounded-xl px-2.5 py-2">
+          <!-- Search icon: h-4 w-4 text-foreground/40 -->
+          <svg class="w-3 h-3 text-foreground/40 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span class="text-[9px] text-foreground/40">Search people...</span>
         </div>
-        <div class="px-2 py-2 rounded-xl text-[8px] text-cyan/60 font-medium" style="background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.1);">
+        <!-- Overdue filter: glass text-foreground/60 rounded-2xl -->
+        <div class="px-2 py-2 rounded-xl glass text-[8px] text-foreground/60 font-medium">
           Overdue
         </div>
       </div>
 
-      <!-- CARD GRID -->
+      <!-- ═══ CARD GRID: matches grid grid-cols-2 gap-x-3 gap-y-4 ═══ -->
       <div class="grid grid-cols-2 gap-x-2.5 gap-y-3" style="perspective: 800px;">
 
-        <!-- CARD 1: Sarah — Hot streak (14), 85% connection -->
-        <div class="flex flex-col items-center p-2.5 rounded-2xl relative" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.08); animation: card-entrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0ms both;">
+        <!-- ══ CARD 1: Sarah — Hot streak (14), 85% connection ══ -->
+        <!-- Matches: SwipeablePersonCard flex flex-col items-center p-3 rounded-2xl glass-card -->
+        <div
+          class="flex flex-col items-center p-2.5 rounded-2xl glass-card relative"
+          style="animation: card-entrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0ms both;"
+        >
+          <!-- Avatar wrapper: relative, for streak badge positioning -->
           <div class="relative">
-            <div class="h-[72px] w-[72px] rounded-full flex items-center justify-center overflow-hidden" style="background: rgba(0,212,255,0.05); box-shadow: 0 0 0 3px rgba(0,212,255,0.2);">
-              <span class="text-2xl font-semibold text-foreground/80">S</span>
+            <!-- PersonAvatar: size="2xl" → scaled from h-36 w-36 to ~h-[72px] w-[72px] -->
+            <!-- ring-4 ring-[hsl(350_40%_60%/0.45)] bg-primary/30 -->
+            <div
+              class="h-[72px] w-[72px] rounded-full flex items-center justify-center overflow-hidden"
+              style="background: hsl(15 30% 75% / 0.3); box-shadow: 0 0 0 3px hsl(350 40% 60% / 0.45);"
+            >
+              <!-- Initials: text-5xl → scaled to text-2xl, font-semibold -->
+              <span class="text-2xl font-semibold text-foreground">S</span>
             </div>
-            <div class="absolute -bottom-1.5 -left-1.5 flex items-center gap-0.5 rounded-full px-1 py-0.5 bg-red-500/20 border border-red-400/30" style="box-shadow: 0 0 8px 2px rgba(239,68,68,0.2);">
-              <svg class="w-3.5 h-3.5 text-red-400 fill-red-400 animate-flame-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={flamePath}/></svg>
-              <span class="text-[10px] font-bold leading-none text-red-400 pr-0.5">14</span>
+            <!-- StreakBadge: absolute -bottom-1.5 -left-1.5 -->
+            <!-- Hot tier: bg-red-100 shadow-[0_0_8px_2px_hsl(0_60%_50%/0.3)] -->
+            <div
+              class="absolute -bottom-1.5 -left-1.5 flex items-center gap-0.5 rounded-full px-1 py-0.5 bg-red-100 select-none"
+              style="box-shadow: 0 0 8px 2px hsl(0 60% 50% / 0.3);"
+            >
+              <svg class="w-3.5 h-3.5 text-red-500 fill-red-400 animate-flame-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={flamePath}/></svg>
+              <span class="text-[10px] font-bold leading-none text-red-600 pr-0.5">14</span>
             </div>
           </div>
+          <!-- Connection bar: mt-3 w-24 → scaled to mt-2 w-16 -->
+          <!-- AnimatedConnectionBar size="sm": h-2 border border-black bg-muted/60 -->
           <div class="mt-2 w-16">
-            <div class="h-[6px] rounded-full overflow-hidden relative" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(0,212,255,0.1);">
-              <div class="absolute inset-y-0 left-0 rounded-full overflow-hidden" style="width: 85%; animation: bar-fill 2s ease-out 0.8s both;">
-                <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0,212,255,0.8) 0%, rgba(0,180,220,0.6) 100%);"></div>
+            <div class="h-[6px] bg-muted/60 rounded-full overflow-hidden relative border border-foreground/10">
+              <div
+                class="absolute inset-y-0 left-0 rounded-full overflow-hidden"
+                style="width: 85%; animation: bar-fill 2s ease-out 0.8s both;"
+              >
+                <div class="absolute inset-0" style="background: linear-gradient(180deg, hsl(350 42% 56%) 0%, hsl(350 40% 52%) 60%, hsl(350 38% 48%) 100%);"></div>
+                <!-- Floating hearts inside bar -->
+                <div class="absolute animate-heart-float-1" style="width: 3px; height: 3px; left: 25%; top: calc(50% - 1.5px); animation-duration: 6s;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d={heartPath}/></svg>
+                </div>
+                <div class="absolute animate-heart-float-2" style="width: 3px; height: 3px; left: 60%; top: calc(50% - 1.5px); animation-duration: 7.5s; animation-delay: 2s;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d={heartPath}/></svg>
+                </div>
               </div>
             </div>
           </div>
-          <p class="mt-2 text-[11px] font-bold text-foreground/80 truncate max-w-full px-0.5">
-            <span class="border-b border-cyan/20 pb-px">Sarah</span>
+          <!-- Name: text-base font-bold border-b border-foreground/20 pb-0.5, first name only -->
+          <p class="mt-2 text-[11px] font-bold text-foreground truncate max-w-full px-0.5">
+            <span class="border-b border-foreground/20 pb-px">Sarah</span>
           </p>
         </div>
 
-        <!-- CARD 2: Mom — Warm streak (8), 62% connection -->
-        <div class="flex flex-col items-center p-2.5 rounded-2xl relative" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.08); animation: card-entrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 80ms both;">
+        <!-- ══ CARD 2: Mom — Warm streak (8), 62% connection ══ -->
+        <div
+          class="flex flex-col items-center p-2.5 rounded-2xl glass-card relative"
+          style="animation: card-entrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 80ms both;"
+        >
           <div class="relative">
-            <div class="h-[72px] w-[72px] rounded-full flex items-center justify-center overflow-hidden" style="background: rgba(0,212,255,0.05); box-shadow: 0 0 0 3px rgba(0,212,255,0.2);">
-              <span class="text-2xl font-semibold text-foreground/80">M</span>
+            <div
+              class="h-[72px] w-[72px] rounded-full flex items-center justify-center overflow-hidden"
+              style="background: hsl(15 30% 75% / 0.3); box-shadow: 0 0 0 3px hsl(350 40% 60% / 0.45);"
+            >
+              <span class="text-2xl font-semibold text-foreground">M</span>
             </div>
-            <div class="absolute -bottom-1.5 -left-1.5 flex items-center gap-0.5 rounded-full px-1 py-0.5 bg-orange-500/20 border border-orange-400/30" style="box-shadow: 0 0 6px 1px rgba(251,146,60,0.2);">
-              <svg class="w-3.5 h-3.5 text-orange-400 fill-orange-400 animate-flame-pulse" style="animation-delay: 0.3s;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={flamePath}/></svg>
-              <span class="text-[10px] font-bold leading-none text-orange-400 pr-0.5">8</span>
+            <!-- Warm tier: bg-orange-100, shadow-[0_0_6px_1px_hsl(30_60%_50%/0.2)] -->
+            <div
+              class="absolute -bottom-1.5 -left-1.5 flex items-center gap-0.5 rounded-full px-1 py-0.5 bg-orange-100"
+              style="box-shadow: 0 0 6px 1px hsl(30 60% 50% / 0.2);"
+            >
+              <svg class="w-3.5 h-3.5 text-orange-500 fill-orange-400 animate-flame-pulse" style="animation-delay: 0.3s;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={flamePath}/></svg>
+              <span class="text-[10px] font-bold leading-none text-orange-600 pr-0.5">8</span>
             </div>
           </div>
           <div class="mt-2 w-16">
-            <div class="h-[6px] rounded-full overflow-hidden relative" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(0,212,255,0.1);">
-              <div class="absolute inset-y-0 left-0 rounded-full overflow-hidden" style="width: 62%; animation: bar-fill 2s ease-out 1s both;">
-                <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0,212,255,0.8) 0%, rgba(0,180,220,0.6) 100%);"></div>
+            <div class="h-[6px] bg-muted/60 rounded-full overflow-hidden relative border border-foreground/10">
+              <div
+                class="absolute inset-y-0 left-0 rounded-full overflow-hidden"
+                style="width: 62%; animation: bar-fill 2s ease-out 1s both;"
+              >
+                <div class="absolute inset-0" style="background: linear-gradient(180deg, hsl(350 42% 56%) 0%, hsl(350 40% 52%) 60%, hsl(350 38% 48%) 100%);"></div>
+                <div class="absolute animate-heart-float-3" style="width: 3px; height: 3px; left: 35%; top: calc(50% - 1.5px); animation-duration: 7s; animation-delay: 1s;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d={heartPath}/></svg>
+                </div>
               </div>
             </div>
           </div>
-          <p class="mt-2 text-[11px] font-bold text-foreground/80 truncate max-w-full px-0.5">
-            <span class="border-b border-cyan/20 pb-px">Mom</span>
+          <p class="mt-2 text-[11px] font-bold text-foreground truncate max-w-full px-0.5">
+            <span class="border-b border-foreground/20 pb-px">Mom</span>
           </p>
         </div>
 
-        <!-- CARD 3: Jake — Mild streak (3), 35% connection -->
-        <div class="flex flex-col items-center p-2.5 rounded-2xl relative" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.08); animation: card-entrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 160ms both;">
+        <!-- ══ CARD 3: Jake — Mild streak (3), 35% connection ══ -->
+        <div
+          class="flex flex-col items-center p-2.5 rounded-2xl glass-card relative"
+          style="animation: card-entrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 160ms both;"
+        >
           <div class="relative">
-            <div class="h-[72px] w-[72px] rounded-full flex items-center justify-center overflow-hidden" style="background: rgba(0,212,255,0.05); box-shadow: 0 0 0 3px rgba(0,212,255,0.2);">
-              <span class="text-2xl font-semibold text-foreground/80">J</span>
+            <div
+              class="h-[72px] w-[72px] rounded-full flex items-center justify-center overflow-hidden"
+              style="background: hsl(15 30% 75% / 0.3); box-shadow: 0 0 0 3px hsl(350 40% 60% / 0.45);"
+            >
+              <span class="text-2xl font-semibold text-foreground">J</span>
             </div>
-            <div class="absolute -bottom-1.5 -left-1.5 flex items-center gap-0.5 rounded-full px-1 py-0.5 bg-amber-500/20 border border-amber-400/30 shadow-sm">
-              <svg class="w-3.5 h-3.5 text-amber-400 fill-amber-400 animate-flame-pulse" style="animation-delay: 0.6s;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={flamePath}/></svg>
+            <!-- Mild tier: bg-amber-100, shadow-sm, NO count text (< 7) -->
+            <div
+              class="absolute -bottom-1.5 -left-1.5 flex items-center gap-0.5 rounded-full px-1 py-0.5 bg-amber-100 shadow-sm"
+            >
+              <svg class="w-3.5 h-3.5 text-amber-500 fill-amber-400 animate-flame-pulse" style="animation-delay: 0.6s;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={flamePath}/></svg>
             </div>
           </div>
           <div class="mt-2 w-16">
-            <div class="h-[6px] rounded-full overflow-hidden relative" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(0,212,255,0.1);">
-              <div class="absolute inset-y-0 left-0 rounded-full overflow-hidden" style="width: 35%; animation: bar-fill 2s ease-out 1.2s both;">
-                <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0,212,255,0.8) 0%, rgba(0,180,220,0.6) 100%);"></div>
+            <div class="h-[6px] bg-muted/60 rounded-full overflow-hidden relative border border-foreground/10">
+              <div
+                class="absolute inset-y-0 left-0 rounded-full overflow-hidden"
+                style="width: 35%; animation: bar-fill 2s ease-out 1.2s both;"
+              >
+                <div class="absolute inset-0" style="background: linear-gradient(180deg, hsl(350 42% 56%) 0%, hsl(350 40% 52%) 60%, hsl(350 38% 48%) 100%);"></div>
               </div>
             </div>
           </div>
-          <p class="mt-2 text-[11px] font-bold text-foreground/80 truncate max-w-full px-0.5">
-            <span class="border-b border-cyan/20 pb-px">Jake</span>
+          <p class="mt-2 text-[11px] font-bold text-foreground truncate max-w-full px-0.5">
+            <span class="border-b border-foreground/20 pb-px">Jake</span>
           </p>
         </div>
 
-        <!-- CARD 4: Alex — No streak, 12% connection -->
-        <div class="flex flex-col items-center p-2.5 rounded-2xl relative" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.08); animation: card-entrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 240ms both;">
+        <!-- ══ CARD 4: Alex — No streak, 12% connection (pulsing empty bar) ══ -->
+        <div
+          class="flex flex-col items-center p-2.5 rounded-2xl glass-card relative"
+          style="animation: card-entrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 240ms both;"
+        >
           <div class="relative">
-            <div class="h-[72px] w-[72px] rounded-full flex items-center justify-center overflow-hidden" style="background: rgba(0,212,255,0.05); box-shadow: 0 0 0 3px rgba(0,212,255,0.2);">
-              <span class="text-2xl font-semibold text-foreground/80">A</span>
+            <div
+              class="h-[72px] w-[72px] rounded-full flex items-center justify-center overflow-hidden"
+              style="background: hsl(15 30% 75% / 0.3); box-shadow: 0 0 0 3px hsl(350 40% 60% / 0.45);"
+            >
+              <span class="text-2xl font-semibold text-foreground">A</span>
             </div>
           </div>
+          <!-- Low connection: gentle-pulse animation on bar border -->
           <div class="mt-2 w-16">
-            <div class="h-[6px] rounded-full overflow-hidden relative animate-glow-pulse" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(0,212,255,0.1);">
-              <div class="absolute inset-y-0 left-0 rounded-full overflow-hidden" style="width: 12%; animation: bar-fill 2s ease-out 1.4s both;">
-                <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0,212,255,0.8) 0%, rgba(0,180,220,0.6) 100%);"></div>
+            <div class="h-[6px] bg-muted/60 rounded-full overflow-hidden relative border border-foreground/10 animate-gentle-pulse">
+              <div
+                class="absolute inset-y-0 left-0 rounded-full overflow-hidden"
+                style="width: 12%; animation: bar-fill 2s ease-out 1.4s both;"
+              >
+                <div class="absolute inset-0" style="background: linear-gradient(180deg, hsl(350 42% 56%) 0%, hsl(350 40% 52%) 60%, hsl(350 38% 48%) 100%);"></div>
               </div>
             </div>
           </div>
-          <p class="mt-2 text-[11px] font-bold text-foreground/80 truncate max-w-full px-0.5">
-            <span class="border-b border-cyan/20 pb-px">Alex</span>
+          <p class="mt-2 text-[11px] font-bold text-foreground truncate max-w-full px-0.5">
+            <span class="border-b border-foreground/20 pb-px">Alex</span>
           </p>
         </div>
+
       </div>
 
-      <!-- BOTTOM TAB BAR -->
-      <div class="flex items-center justify-around border-t border-cyan/10 pt-2 pb-2 mx-3" style="background: rgba(10,10,18,0.8); backdrop-filter: blur(10px);">
+      <!-- ═══ BOTTOM TAB BAR: matches BottomTabBar.tsx ═══ -->
+      <div class="flex items-center justify-around border-t border-foreground/10 pt-2 pb-2 bg-background/60 mx-3" style="backdrop-filter: blur(10px);">
+        <!-- Home tab (active) -->
         <div class="flex flex-col items-center gap-0.5">
-          <svg class="w-4 h-4 text-cyan" style="stroke-width: 2.5;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <span class="text-[7px] font-medium text-cyan">Home</span>
+          <svg class="w-4 h-4 text-primary" style="stroke-width: 2.5;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="text-[7px] font-medium text-primary">Home</span>
         </div>
+        <!-- Agent tab (Brain icon from lucide, matches app) -->
         <div class="flex flex-col items-center gap-0.5">
-          <svg class="w-4 h-4 text-foreground/30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>
-          <span class="text-[7px] font-medium text-foreground/30">Agent</span>
+          <svg class="w-4 h-4 text-foreground/40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>
+          <span class="text-[7px] font-medium text-foreground/40">Agent</span>
         </div>
+        <!-- Profile tab -->
         <div class="flex flex-col items-center gap-0.5">
-          <svg class="w-4 h-4 text-foreground/30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <span class="text-[7px] font-medium text-foreground/30">Profile</span>
+          <svg class="w-4 h-4 text-foreground/40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="text-[7px] font-medium text-foreground/40">Profile</span>
         </div>
       </div>
     </div>

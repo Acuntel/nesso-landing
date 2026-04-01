@@ -1,112 +1,61 @@
 ---
 const steps = [
   {
-    number: '01',
+    number: '1',
     title: 'Add your people',
     description: 'Your inner circle, all in one place. Add anyone you want to stay close to.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>`,
   },
   {
-    number: '02',
+    number: '2',
     title: 'Watch your connections',
-    description: "Connection bars show when it's time to reach out. Hearts flow when you're close.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+    description: 'Connection bars show when it\'s time to reach out. Hearts flow when you\'re close.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
   },
   {
-    number: '03',
+    number: '3',
     title: 'Stay close',
     description: 'Text, call, or let Agent Mode craft the perfect message. Works right inside iMessage too.',
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>`,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>`,
   },
 ];
 ---
 
-<section id="how-it-works" class="relative scroll-mt-20 overflow-hidden" data-bg="#0c0c1a">
-  <!-- Pinned container -->
-  <div class="how-it-works-container min-h-screen flex items-center py-20 sm:py-32 px-4 sm:px-6">
-    <div class="max-w-4xl mx-auto w-full relative" style="z-index: 2;">
-      <div class="text-center mb-16">
-        <div class="hud-bracket inline-block mb-4">
-          <span class="text-xs font-mono text-cyan/50 tracking-[0.3em] uppercase">Protocol</span>
+<section id="how-it-works" class="py-16 sm:py-24 px-4 sm:px-6 relative scroll-mt-20">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <h2 class="text-2xl sm:text-3xl font-bold text-foreground mb-3">How it works</h2>
+      <p class="text-muted-foreground">Three simple steps to never drift apart.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      {steps.map((step, i) => (
+        <div
+          class="glass-card rounded-2xl p-6 text-center hover-lift card-glow reveal"
+          style={`transition-delay: ${i * 0.15}s;`}
+        >
+          <!-- Step number -->
+          <div class="w-10 h-10 rounded-full bg-rose/10 flex items-center justify-center text-rose font-bold text-lg mx-auto mb-4">
+            {step.number}
+          </div>
+
+          <!-- Icon -->
+          <div class="text-rose mb-4 flex justify-center" set:html={step.icon} />
+
+          <!-- Text -->
+          <h3 class="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
         </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3">How it works</h2>
-        <p class="text-foreground/40">Three simple steps to never drift apart.</p>
-      </div>
+      ))}
+    </div>
 
-      <!-- Steps container -->
-      <div class="how-it-works-steps relative">
-        <!-- Connecting line -->
-        <div class="hidden md:block absolute top-1/2 left-0 right-0 h-px -translate-y-1/2">
-          <div class="how-it-works-line h-full bg-gradient-to-r from-transparent via-cyan/30 to-transparent" style="transform: scaleX(0); transform-origin: left;"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {steps.map((step, i) => (
-            <div
-              class={`how-step glass-card rounded-2xl p-6 text-center hover-lift card-glow holo-border relative overflow-hidden`}
-              data-step={i}
-            >
-              <!-- Scan line overlay -->
-              <div class="absolute inset-0 pointer-events-none scan-line opacity-50"></div>
-
-              <!-- Step number -->
-              <div class="text-cyan/30 font-mono text-sm tracking-widest mb-4">{step.number}</div>
-
-              <!-- Icon with glow -->
-              <div class="text-cyan mb-4 flex justify-center relative">
-                <div class="absolute inset-0 -m-4 rounded-full blur-xl bg-cyan/5"></div>
-                <div class="relative" set:html={step.icon} />
-              </div>
-
-              <!-- Text -->
-              <h3 class="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
-              <p class="text-sm text-foreground/40 leading-relaxed">{step.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+    <!-- Connecting dots (desktop only) -->
+    <div class="hidden md:flex justify-center items-center absolute top-[calc(50%+20px)] left-1/2 -translate-x-1/2 w-[55%]">
+      <div class="flex-1 border-t-2 border-dashed border-rose/20"></div>
+      <div class="w-2 h-2 rounded-full bg-rose/30 mx-1"></div>
+      <div class="flex-1 border-t-2 border-dashed border-rose/20"></div>
+      <div class="w-2 h-2 rounded-full bg-rose/30 mx-1"></div>
+      <div class="flex-1 border-t-2 border-dashed border-rose/20"></div>
     </div>
   </div>
 </section>
-
-<script>
-  import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Pin the section and animate steps sequentially
-  const container = document.querySelector('.how-it-works-container');
-  const steps = document.querySelectorAll('.how-step');
-  const line = document.querySelector('.how-it-works-line');
-
-  if (container && steps.length > 0) {
-    // Pinned timeline
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container,
-        start: 'top top',
-        end: '+=2000',
-        pin: true,
-        scrub: 1,
-        anticipatePin: 1,
-      },
-    });
-
-    // Animate each step in sequence
-    steps.forEach((step, i) => {
-      tl.from(step, {
-        opacity: 0,
-        y: 60,
-        scale: 0.9,
-        duration: 0.4,
-        ease: 'power2.out',
-      }, i * 0.3);
-    });
-
-    // Draw the connecting line
-    if (line) {
-      tl.to(line, { scaleX: 1, duration: 0.8, ease: 'power2.inOut' }, 0.1);
-    }
-  }
-</script>
