@@ -8,11 +8,15 @@ import SmartAI from '../components/SmartAI.astro';
 import WhoIsItFor from '../components/WhoIsItFor.astro';
 import SocialProof from '../components/SocialProof.astro';
 import FinalCTA from '../components/FinalCTA.astro';
-import FloatingHearts from '../components/FloatingHearts';
+import ParticleField from '../components/ParticleField';
+import GridOverlay from '../components/GridOverlay';
+import SmoothScroll from '../components/SmoothScroll';
 ---
 
 <BaseLayout>
-  <FloatingHearts client:load />
+  <SmoothScroll client:load />
+  <ParticleField client:load />
+  <GridOverlay client:load />
   <Hero />
   <ProblemSection />
   <HowItWorks />
