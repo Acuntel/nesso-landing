@@ -1,0 +1,23 @@
+# Nesso
+
+> Free iPhone app that helps people in their teens and 20s stay in touch with friends and family. Smart reminders, AI-drafted messages, and an iMessage extension. Built by Brady Schwartz.
+
+Nesso is a friendship-maintenance app. Core features: per-person reminder cadence, AI message drafts that match your typing style, an iMessage extension so check-ins happen without app-switching, streaks tied to actual reach-outs (not opening the app), and a snooze that pauses reminders without guilt.
+
+## Long-form guides
+
+- [How to Stay in Touch With Friends (2026 guide)](https://nesso.tech/guide/stay-in-touch-with-friends.html): science-backed cadence rules, message templates, and a comparison of friendship-maintenance apps. Written by Brady Schwartz.
+
+## Product pages
+
+- [Nesso homepage](https://nesso.tech): app overview, features, social proof, App Store link.
+- [App Store listing](https://apps.apple.com/us/app/nesso-ai/id6759138532): download Nesso free on iPhone.
+
+## About
+
+- [Privacy policy](https://nesso.tech/privacy)
+- [Terms of service](https://nesso.tech/terms)
+
+## Author
+
+Brady Schwartz, founder of Nesso. Solo developer, 18, USC-bound for AI. Started the app at 17 after losing touch with most of his high-school friends within a year of college start. Reach: brady@nesso.tech.

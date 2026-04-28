@@ -1,4 +1,6 @@
 ---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/manrope';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -43,26 +45,44 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
 
-    <!-- Structured Data -->
+    <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Nesso",
-      "operatingSystem": "iOS",
-      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "iOS 14+",
+      "applicationCategory": "SocialNetworkingApplication",
       "description": description,
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "url": "https://nesso.tech",
-      "downloadUrl": "https://apps.apple.com/us/app/nesso-ai/id6759138532"
+      "downloadUrl": "https://apps.apple.com/us/app/nesso-ai/id6759138532",
+      "author": { "@id": "https://nesso.tech/about#brady" }
     })} />
 
-    <!-- Preload display font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://nesso.tech/#organization",
+      "name": "Nesso",
+      "url": "https://nesso.tech",
+      "logo": "https://nesso.tech/nesso-logo.png",
+      "sameAs": [
+        "https://instagram.com/nesso_app",
+        "https://tiktok.com/@nesso.app"
+      ],
+      "founder": {
+        "@type": "Person",
+        "@id": "https://nesso.tech/about#brady",
+        "name": "Brady Schwartz",
+        "url": "https://nesso.tech/about"
+      }
+    })} />
 
     <style>
-      body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+      body { font-family: 'Manrope Variable', system-ui, -apple-system, sans-serif; }
+      .font-display { font-family: 'Fraunces Variable', Georgia, Cambria, ui-serif, serif; }
+      ::selection { background: hsl(350 40% 62% / 0.3); color: inherit; }
     </style>
   </head>
   <body class="min-h-screen">

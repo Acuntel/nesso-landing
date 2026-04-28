@@ -3,45 +3,40 @@ const features = [
   {
     title: 'Agent Mode',
     description: 'Your AI relationship coach. Ask for advice, get message ideas, or talk through how to reconnect with someone you\'ve lost touch with.',
-    gradient: 'from-violet-100 to-purple-100',
-    iconColor: 'text-violet-500',
+    iconStyle: 'accent',
+    span: 'lg:col-span-2',
     icon: `<svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/><circle cx="12" cy="14" r="2"/><path d="M9 14h.01"/><path d="M15 14h.01"/><path d="M9.5 17.5 12 16l2.5 1.5"/></svg>`,
     badge: 'New',
   },
   {
     title: 'iMessage Extension',
     description: 'Get AI-powered reply suggestions without leaving your texts. Nesso lives right inside iMessage.',
-    gradient: 'from-green-100 to-emerald-100',
-    iconColor: 'text-green-600',
+    iconStyle: 'accent',
     icon: `<svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></svg>`,
     badge: 'New',
   },
   {
     title: 'Streaks',
     description: 'Build momentum with every reach out. Hit milestones at 7, 14, 30, and 100, celebrated with fireworks.',
-    gradient: 'from-red-100 to-orange-100',
-    iconColor: 'text-red-500',
+    iconStyle: 'muted',
     icon: `<svg class="w-8 h-8 animate-flame-pulse" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>`,
   },
   {
     title: 'AI Messages',
     description: "Don't know what to say? Get 3 personalized suggestions, casual, heartfelt, or playful. Just tap and send.",
-    gradient: 'from-violet-100 to-blue-100',
-    iconColor: 'text-violet-500',
+    iconStyle: 'muted',
     icon: `<svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg>`,
   },
   {
     title: 'Smart Reminders',
     description: 'Gentle nudges before connections fade. Birthday awareness. Holiday prompts. Even Siri shortcuts to reach out by voice.',
-    gradient: 'from-amber-100 to-yellow-100',
-    iconColor: 'text-amber-500',
+    iconStyle: 'muted',
     icon: `<svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>`,
   },
   {
     title: 'Snooze',
     description: "Life gets busy. Pause someone's reminders for 1-7 days without guilt. No streak penalty, just grace.",
-    gradient: 'from-blue-100 to-indigo-100',
-    iconColor: 'text-blue-500',
+    iconStyle: 'muted',
     icon: `<svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4"/><path d="M6 8V4"/><path d="M22 12h-4"/><path d="M18 8V4"/><path d="M12 2a10 10 0 0 0-6.88 2.77"/><path d="M12 2a10 10 0 0 1 6.88 2.77"/><path d="M12 22a10 10 0 0 1-6.88-2.77"/><path d="M12 22a10 10 0 0 0 6.88-2.77"/><path d="M12 6v6l4 2"/></svg>`,
   },
 ];
@@ -50,45 +45,51 @@ const features = [
 <section id="features" class="py-16 sm:py-24 px-4 sm:px-6 scroll-mt-20">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-14 reveal">
-      <h2 class="text-2xl sm:text-3xl font-bold text-foreground mb-3">Everything you need to stay close</h2>
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-foreground tracking-[-0.02em] leading-[1.1] mb-3">Everything you need to stay close</h2>
       <p class="text-muted-foreground">Simple tools that make maintaining relationships effortless.</p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {features.map((feature, i) => (
         <div
-          class="glass-card rounded-2xl p-6 hover-lift card-glow reveal relative"
-          style={`transition-delay: ${i * 0.08}s;`}
+          class:list={['content-card rounded-2xl p-6 hover-lift reveal relative', feature.span]}
+          style={`transition-delay: ${i * 0.06}s;`}
         >
-          {/* New badge */}
           {feature.badge && (
-            <span class="absolute top-4 right-4 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-rose/15 text-rose">
+            <span class="absolute top-4 right-4 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-full bg-rose/15 text-rose">
               {feature.badge}
             </span>
           )}
 
-          {/* Icon */}
-          <div class:list={['w-14 h-14 rounded-2xl flex items-center justify-center mb-4 bg-gradient-to-br', feature.gradient, feature.iconColor]}>
+          <div class:list={[
+            'w-14 h-14 rounded-2xl flex items-center justify-center mb-4',
+            feature.iconStyle === 'accent' ? 'bg-rose/12 text-rose' : 'bg-muted/50 text-foreground/55',
+          ]}>
             <Fragment set:html={feature.icon} />
           </div>
 
-          {/* Text */}
           <h3 class="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
           <p class="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
         </div>
       ))}
-    </div>
-    <!-- Mini CTA -->
-    <div class="text-center mt-10 reveal" style="transition-delay: 0.6s;">
+
+      <!-- Mini CTA fills the trailing grid cell, breaks symmetry -->
       <a
         href="https://apps.apple.com/us/app/nesso-ai/id6759138532"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background text-sm font-semibold hover:opacity-90 transition-opacity"
+        class="content-card rounded-2xl p-6 reveal flex flex-col justify-between hover-lift group"
+        style="transition-delay: 0.36s;"
       >
-        Try it free
+        <div>
+          <p class="font-display text-xl font-semibold text-foreground tracking-[-0.02em] leading-[1.1] mb-2">Ready when you are.</p>
+          <p class="text-sm text-muted-foreground leading-relaxed">Free on the App Store. Works in iMessage today.</p>
+        </div>
+        <span class="inline-flex items-center gap-1.5 mt-4 text-sm font-semibold text-foreground">
+          Download Nesso
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
       </a>
-      <p class="text-xs text-muted-foreground/50 mt-3">Free to download. No credit card required.</p>
     </div>
   </div>
 </section>

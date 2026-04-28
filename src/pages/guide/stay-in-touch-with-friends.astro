@@ -1,0 +1,309 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'How to Stay in Touch With Friends (2026 Guide) | Nesso';
+const description = 'The science-backed guide to maintaining friendships in your 20s — cadences, message templates, and the apps that actually work. Free iPhone tools.';
+const canonical = 'https://nesso.tech/guide/stay-in-touch-with-friends';
+const datePublished = '2026-04-28';
+const dateModified = '2026-04-28';
+const appStore = 'https://apps.apple.com/us/app/nesso-ai/id6759138532';
+
+const faqs = [
+  {
+    q: 'How often should I text my best friend?',
+    a: "Depends on the friendship's natural cadence, but a useful default is every 2–3 days, with at least one voice or video moment per week. Best friends are the only friendship layer where daily contact is sustainable for most people. If your gut says you're under-investing, you probably are; if it says you're over-investing, you probably aren't.",
+  },
+  {
+    q: 'Is it weird to text an old friend out of nowhere?',
+    a: "It's almost never weird from their side. Most people receive an out-of-nowhere \"thinking of you\" message as a small gift. The weirdness is entirely in your head. The longer the silence, the more they'll appreciate it — not less.",
+  },
+  {
+    q: 'Is there a free app that reminds me to text people?',
+    a: 'Yes. Nesso is free on iPhone, with no paywall on the core reminder and AI message features. Garden and Catchup are also free options without AI drafting. Most personal CRM apps charge $8–15 a month, which is a hard sell for what should be a personal habit, not a productivity tool.',
+  },
+  {
+    q: 'What should I say when I haven\'t talked to someone in years?',
+    a: 'Reference one specific shared memory in 1–3 sentences. Don\'t apologize. Don\'t make a big production of it. "Hey — saw [specific thing] yesterday and immediately thought of you. How have you been?" works for almost any length of silence.',
+  },
+  {
+    q: 'How many close friendships can one person actually maintain?',
+    a: "About 5 truly intimate, 15 close, 50 good, and 150 in the broader circle, per Robin Dunbar's research. These numbers are consistent across cultures and across the last 30 years of research. The implication: you don't have to be friends with everyone you've ever met. Pick your 15 and invest there.",
+  },
+  {
+    q: 'Does an iMessage extension work on all iPhones?',
+    a: "Yes — any iPhone running iOS 14 or later supports iMessage extensions. The extension shows up in the app drawer above the keyboard inside Messages. Nesso's extension is free and works without an account.",
+  },
+  {
+    q: 'Can AI write a friendship text that sounds like me?',
+    a: "Yes, if it has the right inputs. The trick is that the AI needs to know your relationship with the recipient, your typing style, and your shared history. Generic AI tools don't have any of this and produce generic output. Purpose-built tools like Nesso's AI Messages have the context already.",
+  },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'How to Stay in Touch With Friends: A 2026 Guide to Friendship Maintenance That Actually Works',
+  description,
+  datePublished,
+  dateModified,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+  author: {
+    '@type': 'Person',
+    '@id': 'https://nesso.tech/about#brady',
+    name: 'Brady Schwartz',
+    url: 'https://nesso.tech/about',
+    jobTitle: 'Founder, Nesso',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Nesso',
+    url: 'https://nesso.tech',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://nesso.tech/nesso-logo.png',
+    },
+  },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Nesso',
+  operatingSystem: 'iOS 14+',
+  applicationCategory: 'SocialNetworkingApplication',
+  url: 'https://nesso.tech',
+  downloadUrl: appStore,
+  description: 'Free iPhone app for keeping in touch with friends and family. Smart reminders, AI message drafts, and an iMessage extension.',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  author: { '@id': 'https://nesso.tech/about#brady' },
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+
+  <article class="max-w-2xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+
+    <p class="text-xs uppercase tracking-widest text-muted-foreground/70 mb-3">Friendship guide · Updated April 28, 2026</p>
+    <h1 class="font-display text-4xl sm:text-5xl font-semibold text-foreground tracking-[-0.03em] leading-[1.05] mb-6">
+      How to Stay in Touch With Friends: A 2026 Guide to Friendship Maintenance That Actually Works
+    </h1>
+
+    <aside class="content-card rounded-2xl p-5 sm:p-6 my-8" aria-label="Quick answer">
+      <p class="text-xs uppercase tracking-widest text-rose font-semibold mb-2">Quick Answer</p>
+      <p class="text-foreground leading-relaxed">
+        Most friendships don't die from conflict — they die from drift. The fix is a rhythm you can keep. Set a cadence for the people who matter (weekly for close friends, monthly for old ones, quarterly for acquaintances), use a gentle reminder system so you don't have to remember, and send short, specific messages instead of waiting for the "right time." Apps like <a href="https://nesso.tech" class="underline underline-offset-4 decoration-rose/40 hover:decoration-rose">Nesso</a> automate the cadence and draft the message for you right inside iMessage.
+      </p>
+    </aside>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">Why friendships drift — and why it's not your fault</h2>
+    <p class="leading-relaxed text-foreground/90 mb-6">Friendships fade for the same reason gym memberships do: nobody schedules them. Most people lose touch with friends not because something went wrong, but because nothing went wrong on a Tuesday afternoon, and then the next Tuesday, and then the one after that.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">The friendship recession, by the numbers</h3>
+    <p class="leading-relaxed text-foreground/90 mb-4">The data is grim and getting grimmer. The U.S. Surgeon General issued <a href="https://www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf" rel="noopener" class="underline underline-offset-4 decoration-rose/40 hover:decoration-rose">a public advisory in 2023</a> describing loneliness as an epidemic — about half of American adults report feeling lonely on a regular basis. Pew found in October 2023 that 8% of Americans say they have zero close friends. The <a href="https://www.americansurveycenter.org/research/the-state-of-american-friendship-change-challenges-and-loss/" rel="noopener" class="underline underline-offset-4 decoration-rose/40 hover:decoration-rose">American Perspectives Survey</a> reported the share of men with six or more close friends has fallen by half since 1990. Among women 18–29, 59% said they lost touch with friends during the pandemic and never fully recovered.</p>
+    <p class="leading-relaxed text-foreground/90 mb-6">If you're 18 to 28 and feel like you're slipping out of every group chat you used to belong to, the data agrees with you. This is not a personal failing. It's a generational pattern.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">Why friendships fall apart without active contact</h3>
+    <p class="leading-relaxed text-foreground/90 mb-4">The British anthropologist <a href="https://theconversation.com/dunbars-number-why-my-theory-that-humans-can-only-maintain-150-friendships-has-withstood-30-years-of-scrutiny-160676" rel="noopener" class="underline underline-offset-4 decoration-rose/40 hover:decoration-rose">Robin Dunbar</a> has spent three decades studying how many people we can really know. His answer is around 150 — but the more useful insight is that those relationships exist in nested layers: 5 intimates, 15 close friends, 50 good friends, and 150 acquaintances. Each layer requires a different rate of contact to stay alive. Dunbar describes a "decay function": without input, friendships drift outward through the layers and eventually fall off.</p>
+    <p class="leading-relaxed text-foreground/90 mb-6">In other words, the math is doing the work even when you aren't. If you don't talk to someone, the friendship doesn't stay frozen — it shrinks.</p>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">How often should you actually text your friends?</h2>
+    <p class="leading-relaxed text-foreground/90 mb-6">The honest answer: more often than you think, but with way less pressure than you imagine. Most people drastically overweight what counts as "reaching out." A 12-second voice note is plenty. A photo with two words attached is plenty. A bad meme is plenty.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">The 5-15-50-150 rule applied to texting</h3>
+    <p class="leading-relaxed text-foreground/90 mb-4">Apply Dunbar's layers as a default cadence:</p>
+    <div class="content-card rounded-2xl p-2 my-6 overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="text-left">
+            <th class="px-3 py-2 font-semibold text-foreground">Layer</th>
+            <th class="px-3 py-2 font-semibold text-foreground">Who</th>
+            <th class="px-3 py-2 font-semibold text-foreground">How often</th>
+            <th class="px-3 py-2 font-semibold text-foreground">What it looks like</th>
+          </tr>
+        </thead>
+        <tbody class="text-foreground/80">
+          <tr><td class="px-3 py-2">5 — Intimates</td><td class="px-3 py-2">Best friends, partner, immediate family</td><td class="px-3 py-2">Every few days</td><td class="px-3 py-2">Real conversation, voice or video</td></tr>
+          <tr><td class="px-3 py-2">15 — Close friends</td><td class="px-3 py-2">Group chat regulars, college friends</td><td class="px-3 py-2">Weekly</td><td class="px-3 py-2">Texts, voice notes, plans</td></tr>
+          <tr><td class="px-3 py-2">50 — Good friends</td><td class="px-3 py-2">People you'd grab a beer with</td><td class="px-3 py-2">Monthly</td><td class="px-3 py-2">"Saw this and thought of you"</td></tr>
+          <tr><td class="px-3 py-2">150 — Acquaintances</td><td class="px-3 py-2">Old coworkers, ex-classmates</td><td class="px-3 py-2">Quarterly</td><td class="px-3 py-2">Birthday text, holiday note</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="leading-relaxed text-foreground/90 mb-6">This is a default, not a contract. The point is to have a target your gut can use, instead of relying on guilt to remind you someone exists.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">A simple cadence chart you can copy</h3>
+    <p class="leading-relaxed text-foreground/90 mb-6">A practical trick: assign the 15 people in your "close friends" layer to four groups — A, B, C, D. Reach out to one group per week. That's 3–4 friends a week, every friend touched once a month, with zero scheduling overhead. <a href="https://nesso.tech" class="underline underline-offset-4 decoration-rose/40 hover:decoration-rose">Nesso</a> handles this layer assignment for you so you don't have to maintain the spreadsheet yourself.</p>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">The single habit that saves most friendships</h2>
+    <p class="leading-relaxed text-foreground/90 mb-6">Show up consistently in small ways. That's it. There is no other advice that beats this.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">Why consistency beats effort</h3>
+    <p class="leading-relaxed text-foreground/90 mb-4">Robert Waldinger directs <a href="https://www.pbs.org/newshour/show/researchers-find-strong-relationships-protect-long-term-health-and-happiness" rel="noopener" class="underline underline-offset-4 decoration-rose/40 hover:decoration-rose">the Harvard Study of Adult Development</a>, the longest-running study of adult life ever conducted. His central finding after 80+ years of data is brutally simple: the strongest predictor of a long, happy, healthy life is the quality of your close relationships. Not money. Not career. Not even genetics.</p>
+    <p class="leading-relaxed text-foreground/90 mb-6">The key word is <em>quality</em>, and quality is built one small input at a time. A two-minute text on a random Wednesday accumulates faster than a three-hour catch-up dinner once a year. Your brain records the rhythm, not the moment.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">The two-minute text rule</h3>
+    <p class="leading-relaxed text-foreground/90 mb-6">If you can compose a check-in in under two minutes, send it. Don't wait until you have something interesting to say. Don't wait until you have time to "do it properly." The version that exists beats the version you'll write later.</p>
+
+    <p class="content-card rounded-2xl px-5 py-4 my-8 text-sm text-foreground/90">Nesso is free on iPhone and does this automatically. <a href={appStore} target="_blank" rel="noopener noreferrer" class="font-semibold text-foreground underline underline-offset-4 decoration-rose/50 hover:decoration-rose">Download on the App Store →</a></p>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">How to reconnect with an old friend after a long silence</h2>
+    <p class="leading-relaxed text-foreground/90 mb-6">The longer the silence, the easier it gets, not harder. After about three months the awkwardness plateaus — once you're past it, six months and three years feel about the same. The hard part is starting.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">What to say in the first message (3 templates)</h3>
+    <p class="leading-relaxed text-foreground/90 mb-4">These work because they remove the question of "why now":</p>
+    <ol class="list-decimal pl-6 space-y-2 text-foreground/90 mb-4">
+      <li>"Hey — randomly thought of [specific shared memory] today and wanted to say hi. Hope you're doing well."</li>
+      <li>"I saw [thing they'd find funny or care about] and immediately thought of you. How have you been?"</li>
+      <li>"I owe you a long-overdue check-in. No agenda, just thinking about you. How's life?"</li>
+    </ol>
+    <p class="leading-relaxed text-foreground/90 mb-6">Specificity is the unlock. A generic "long time no see" forces the other person to drive the conversation. A specific memory or reference does the work for them.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">What not to say</h3>
+    <ul class="list-disc pl-6 space-y-2 text-foreground/90 mb-6">
+      <li><strong class="text-foreground">"Sorry I've been such a bad friend."</strong> Don't apologize. The apology forces them to reassure you, which makes the conversation about your guilt instead of their life.</li>
+      <li><strong class="text-foreground">"We should grab coffee soon!"</strong> An open-ended ask without a date evaporates. Either propose a specific time (Wednesday at 6pm at this place) or don't propose anything yet.</li>
+      <li><strong class="text-foreground">A wall of text.</strong> The first reconnect message should be 1–3 sentences. Any longer and it feels like an essay you wrote at 1am.</li>
+    </ul>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">Following up without being awkward</h3>
+    <p class="leading-relaxed text-foreground/90 mb-6">If they reply, great — keep it light, no overcorrection. If they don't reply within a week, send one casual follow-up: "No pressure if life is busy, just sending good vibes." If still no reply, leave it. The door is open. They saw it. Try again in 4–6 months.</p>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">What to text a friend you haven't talked to in a while</h2>
+    <p class="leading-relaxed text-foreground/90 mb-6">Three openers that work for almost any silence length. Adapt one specific detail to make it yours.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">The "random memory" opener</h3>
+    <blockquote class="border-l-2 border-rose/40 pl-4 italic text-foreground/85 mb-4">[Random specific memory] just popped into my head and made me laugh. Hope you're doing well — what's new?</blockquote>
+    <p class="leading-relaxed text-foreground/90 mb-6">Why it works: tells them this isn't a planned outreach, gives them a vivid hook, ends with one easy question.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">The "thinking of you" check-in</h3>
+    <blockquote class="border-l-2 border-rose/40 pl-4 italic text-foreground/85 mb-4">Hey — no real reason, just thinking about you. How's [specific thing you remember they were dealing with]?</blockquote>
+    <p class="leading-relaxed text-foreground/90 mb-6">Why it works: signals care without performance, anchors the message in their life rather than yours.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">The "I saw this and thought of you"</h3>
+    <blockquote class="border-l-2 border-rose/40 pl-4 italic text-foreground/85 mb-4">Saw this and thought of you immediately. [link / screenshot / photo]</blockquote>
+    <p class="leading-relaxed text-foreground/90 mb-6">Why it works: zero composition pressure on either side. The artifact does the work. They can reply with one emoji or a paragraph; either is fine.</p>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">How to use AI to write a message to a friend (without sounding like a bot)</h2>
+    <p class="leading-relaxed text-foreground/90 mb-6">AI message drafts can absolutely sound human — they just need three pieces of context most people don't give them.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">The three inputs AI needs to sound like you</h3>
+    <ol class="list-decimal pl-6 space-y-2 text-foreground/90 mb-6">
+      <li><strong class="text-foreground">The relationship.</strong> Are they a college friend, a coworker, your sibling? AI talks differently to each.</li>
+      <li><strong class="text-foreground">The history.</strong> What was the last thing you talked about? When did you last connect? AI uses tone of voice based on intimacy.</li>
+      <li><strong class="text-foreground">Your voice.</strong> Periods or no periods? Lowercase or proper case? Voice notes or text? AI mimics what you've shown it.</li>
+    </ol>
+    <p class="leading-relaxed text-foreground/90 mb-6">Generic ChatGPT can't see any of this. It writes a "warm friend message" template that everyone's friends have already read three times this week.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">Why a purpose-built tool beats generic ChatGPT</h3>
+    <p class="leading-relaxed text-foreground/90 mb-6">A purpose-built friendship-message tool — like <a href="https://nesso.tech" class="underline underline-offset-4 decoration-rose/40 hover:decoration-rose">Nesso's AI Messages</a> — already knows your relationship history with the recipient, knows the cadence you've held, and matches your typing style. It also lives inside iMessage, which matters more than you'd expect: zero app-switching means the message actually gets sent. Roughly 70% of "I'll do it later" message intentions die during the app-switch.</p>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">The best apps to remind you to stay in touch (2026)</h2>
+    <p class="leading-relaxed text-foreground/90 mb-6">There are five apps in this category worth knowing about. Each is good at something different.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">What to look for in a friendship-maintenance app</h3>
+    <p class="leading-relaxed text-foreground/90 mb-3">The non-negotiables, ranked:</p>
+    <ol class="list-decimal pl-6 space-y-2 text-foreground/90 mb-6">
+      <li><strong class="text-foreground">Free tier worth using.</strong> Most "personal CRMs" are designed for sales reps and price accordingly. Friendship is not a B2B problem.</li>
+      <li><strong class="text-foreground">Reminders without guilt.</strong> Streaks should encourage you, not punish you. Snooze should exist.</li>
+      <li><strong class="text-foreground">Native iMessage integration.</strong> If you have to leave Messages, you'll never use it.</li>
+      <li><strong class="text-foreground">AI message drafts.</strong> Writing the actual text is half the friction.</li>
+      <li><strong class="text-foreground">Privacy.</strong> Your contact list is intimate data. The app should not sell it.</li>
+    </ol>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">Comparison table — Nesso vs. Dex vs. Garden vs. Catchup vs. Amicu</h3>
+    <div class="content-card rounded-2xl p-2 my-6 overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="text-left">
+            <th class="px-3 py-2 font-semibold text-foreground">App</th>
+            <th class="px-3 py-2 font-semibold text-foreground">Free tier</th>
+            <th class="px-3 py-2 font-semibold text-foreground">iMessage extension</th>
+            <th class="px-3 py-2 font-semibold text-foreground">AI drafts</th>
+            <th class="px-3 py-2 font-semibold text-foreground">Streaks</th>
+            <th class="px-3 py-2 font-semibold text-foreground">Best for</th>
+          </tr>
+        </thead>
+        <tbody class="text-foreground/80">
+          <tr class="bg-rose/5">
+            <td class="px-3 py-2 font-semibold text-foreground"><a href={appStore} target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 decoration-rose/40 hover:decoration-rose">Nesso</a></td>
+            <td class="px-3 py-2">Yes (full)</td>
+            <td class="px-3 py-2">Yes</td>
+            <td class="px-3 py-2">Yes (context-aware)</td>
+            <td class="px-3 py-2">Yes</td>
+            <td class="px-3 py-2">Friends + family in your 20s</td>
+          </tr>
+          <tr><td class="px-3 py-2">Dex</td><td class="px-3 py-2">Limited</td><td class="px-3 py-2">No</td><td class="px-3 py-2">No</td><td class="px-3 py-2">No</td><td class="px-3 py-2">Networking / pro contacts</td></tr>
+          <tr><td class="px-3 py-2">Garden</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">No</td><td class="px-3 py-2">No</td><td class="px-3 py-2">No</td><td class="px-3 py-2">Light reminder use</td></tr>
+          <tr><td class="px-3 py-2">Catchup</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">No</td><td class="px-3 py-2">No</td><td class="px-3 py-2">No</td><td class="px-3 py-2">Bare-minimum reminders</td></tr>
+          <tr><td class="px-3 py-2">Amicu</td><td class="px-3 py-2">Limited</td><td class="px-3 py-2">No</td><td class="px-3 py-2">Limited</td><td class="px-3 py-2">No</td><td class="px-3 py-2">All-purpose CRM</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="leading-relaxed text-foreground/90 mb-6">Nesso is the only one of the five that combines the iMessage extension, AI drafting, and a free tier in a single app. That's not marketing — it's the actual reason it was built.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">Why we built Nesso</h3>
+    <p class="leading-relaxed text-foreground/90 mb-6">I'm Brady. I started Nesso at 17 because I lost touch with most of my high school friends within a year of them leaving for college. The existing personal-CRM apps were either built for sales reps or hidden behind a $12 a month paywall. I just wanted to remember to text people. Nesso is free because friendship maintenance shouldn't cost $144 a year.</p>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">How to keep long-distance friendships alive</h2>
+    <p class="leading-relaxed text-foreground/90 mb-6">Long-distance friendships die for a different reason than local ones. You don't bump into the person, so the friendship has to be 100% scheduled. The fix is the opposite of intuitive: don't try to schedule big things. Schedule small things.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">The anchor ritual</h3>
+    <p class="leading-relaxed text-foreground/90 mb-6">Pick one recurring micro-thing. A weekly meme drop. A Sunday-night voice note. A monthly "what are you watching" check-in. The anchor is the floor, not the ceiling — you can always do more, but the anchor never breaks. Long-distance friendships that survive 5+ years almost always have one.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">Why an iMessage extension matters more than you'd think</h3>
+    <p class="leading-relaxed text-foreground/90 mb-6">For iPhone-to-iPhone friendships, the iMessage extension is the difference between "I'll send something later" and actually sending it. Switching out of Messages to a CRM app to draft a check-in is friction. Friction kills consistency. Consistency is the entire game.</p>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">How to stay in touch with family without it feeling like a chore</h2>
+    <p class="leading-relaxed text-foreground/90 mb-6">Family relationships have different rules than friendships. Cadence is more obligatory but contact mode matters more.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">Parents and grandparents — cadence plus phone, not text</h3>
+    <p class="leading-relaxed text-foreground/90 mb-6">For parents and grandparents, voice beats text. A 4-minute phone call once a week registers more deeply than 14 texts. For grandparents specifically, a phone call is often the only mode of contact they fully experience as connection. Set a recurring time — Sunday afternoons are a classic — and treat it as a non-negotiable appointment with yourself.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">Siblings — group chat hygiene</h3>
+    <p class="leading-relaxed text-foreground/90 mb-6">Siblings die in the chaos of family group chats. The trick: have a separate chat with each sibling, in addition to the family one. The 1:1 chat is where actual updates happen. The family group is for logistics and memes. Mixing them means everyone defaults to surface-level.</p>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">Streaks, badges, and the psychology of showing up</h2>
+    <p class="leading-relaxed text-foreground/90 mb-6">Snapchat figured out something most relationship apps don't: people respond to consistency rituals. They also got it half-wrong by making the streak the <em>point</em>.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">Why Snapchat got streaks half-right</h3>
+    <p class="leading-relaxed text-foreground/90 mb-6">Snapchat streaks created millions of friendships that wouldn't have survived otherwise. They also created friendships where the only content of the relationship was the streak. The ritual became hollow — two people sending blank photos to a contact they hadn't actually talked to in months.</p>
+
+    <h3 class="font-display text-xl font-semibold text-foreground mt-8 mb-3">How gentle pressure beats guilt</h3>
+    <p class="leading-relaxed text-foreground/90 mb-6">The fix is streaks tied to <em>actual reach-outs</em>, not to opening an app. If the streak counts every meaningful check-in (any kind: text, call, voice note, in-person hangout), it stays meaningful. If it counts opening an app, it becomes performative. The pressure should always point toward the friendship, not toward the tool.</p>
+
+    <p class="content-card rounded-2xl px-5 py-4 my-8 text-sm text-foreground/90">Try Nesso free → <a href={appStore} target="_blank" rel="noopener noreferrer" class="font-semibold text-foreground underline underline-offset-4 decoration-rose/50 hover:decoration-rose">App Store</a></p>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">Frequently asked questions</h2>
+    <div class="space-y-6 mt-6">
+      {faqs.map((f) => (
+        <div>
+          <h3 class="font-display text-lg font-semibold text-foreground mb-2">{f.q}</h3>
+          <p class="leading-relaxed text-foreground/90">{f.a}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">About the author</h2>
+    <p class="leading-relaxed text-foreground/90 mb-6">I'm Brady Schwartz, the solo founder of Nesso. I started Nesso at 17 after I realized I'd lost touch with most of my high-school friends within a year of them leaving for college. I'm now 18, building Nesso full-time, and heading to USC in the fall to study AI. I write about friendship technology and solo-founder engineering at <a href="https://nesso.tech" class="underline underline-offset-4 decoration-rose/40 hover:decoration-rose">nesso.tech</a>. You can reach me at <a href="mailto:brady@nesso.tech" class="underline underline-offset-4 decoration-rose/40 hover:decoration-rose">brady@nesso.tech</a>.</p>
+
+    <h2 class="font-display text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em] mt-14 mb-3">Methodology and last updated</h2>
+    <p class="leading-relaxed text-foreground/90 mb-10">This guide is updated weekly. The cadence and template recommendations draw on Robin Dunbar's social-brain research, the Harvard Study of Adult Development, the U.S. Surgeon General's 2023 advisory on loneliness, and <a href="https://www.psychologytoday.com/us/blog/between-the-generations/202201/8-ways-friendships-fall-apart" rel="noopener" class="underline underline-offset-4 decoration-rose/40 hover:decoration-rose">Psychology Today's analysis of how friendships dissolve</a>. App comparisons are refreshed monthly based on the latest App Store versions. Last updated: April 28, 2026.</p>
+
+    <p class="text-center text-sm text-muted-foreground mt-12">
+      <a href={appStore} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-semibold hover:opacity-90 transition-opacity">Download Nesso free</a>
+    </p>
+  </article>
+</BaseLayout>
